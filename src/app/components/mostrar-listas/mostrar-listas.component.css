@@ -1,0 +1,79 @@
+table {
+    width: 100%; 
+    border-radius: 10px;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+th, td {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+.button{
+    background-color: transparent;
+    border-style: none;
+}
+.button:hover {
+    cursor: pointer;
+    color: blue;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+}
+.header-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cerrar-modal{
+    padding: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 4vh;
+}
+.button-cerrar-modal{
+    background-color: transparent;
+    border: 1px solid black;
+    width: 20vh;
+    margin: 6px;
+    height: 5vh;
+    border-radius: 10px;
+}
+.button-cerrar-modal:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.button-eliminar{
+    background-color: #85929e;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 6px;
+    width: 20vh;
+}
+.button-eliminar:hover{
+    cursor: pointer;
+    background-color: red;
+    color: black;
+}

@@ -1,0 +1,49 @@
+<div>
+    <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Canciones</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listaReproduccion; let i = index">
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.descripcion }}</td>
+            <td><button class="button" (click)="abrirModal(item.canciones)">Ver canciones</button></td>
+            <td><button class="button-eliminar" (click)="eliminarLista(i)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<!-- Ventana emergente -->
+<div *ngIf="openModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="header-modal">
+          <h1>Canciones</h1>
+        </div>
+        <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>titulo</th>
+                    <th>artista</th>
+                    <th>album</th>
+                    <th>año</th>
+                    <th>genero</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of canciones">
+              <td>{{item.titulo}}</td>
+              <td>{{item.artista}}</td>
+              <td>{{item.album}}</td>
+              <td>{{item.anno}}</td>
+              <td>{{item.genero}}</td>
+            </tbody>
+        </table>
+      </div>
+      <div class="cerrar-modal"><button class="button-cerrar-modal" (click)="cerrarModal()">cerrar</button></div>
+    </div>
+</div>
