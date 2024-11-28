@@ -12,26 +12,86 @@
     </div>
 </div>
 <app-mostrar-listas></app-mostrar-listas>
+<!-- Modal para crear una nueva lista de reproduccion -->
 <div *ngIf="openModal" class="modal-overlay">
     <div class="modal-content">
         <div class="header-modal">
           <h1>Agregar Lista de Reproduccion</h1>
         </div>
-        <div class="contenido">
+        <div>
             <div class="divs-inputs">
-                <input type="text" class="input" placeholder="Nombre de la lista">
+                <input type="text" class="input" [(ngModel)]="nombre" placeholder="Nombre de la lista">
             </div>
             <div class="divs-inputs">
-                <input type="text" class="input" placeholder="Descripcion">
+                <input type="text" class="input" [(ngModel)]="descripcion" placeholder="Descripcion">
             </div>
             <div>
-                <button class="button-seleccionar">seleccionar canciones</button>
+                <button class="button-seleccionar" (click)="abrirModalTable()">seleccionar canciones</button>
+            </div>
+            <div *ngIf="cancionesSeleccionadas.length > 0" class="div-tabla-canciones-seleccionadas">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>titulo</th>
+                            <th>artista</th>
+                            <th>album</th>
+                            <th>año</th>
+                            <th>genero</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of cancionesSeleccionadas">
+                        <td>{{item.titulo}}</td>
+                        <td>{{item.artista}}</td>
+                        <td>{{item.album}}</td>
+                        <td>{{item.anno}}</td>
+                        <td>{{item.genero}}</td>
+                      </tbody>
+    
+                </table>
             </div>
 
         </div>
         <div class="cerrar-modal">
-            <button class="button-cerrar-modal">Agregar</button>
+            <button class="button-cerrar-modal" (click)="agregarLista()">Agregar</button>
             <button class="button-cerrar-modal" (click)="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<!-- modal para la lista de canciones que hay disponibles-->
+<div *ngIf="openModalTable" class="modal-overlay">
+    <div class="modal-content">
+        <div class="header-modal">
+          <h1>Agregar Lista de Reproduccion</h1>
+        </div>
+        <div class="contenido">
+            <table>
+                <thead>
+                    <tr>
+                        <th>titulo</th>
+                        <th>artista</th>
+                        <th>album</th>
+                        <th>año</th>
+                        <th>genero</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of canciones; let i = index">
+                    <td>{{item.titulo}}</td>
+                    <td>{{item.artista}}</td>
+                    <td>{{item.album}}</td>
+                    <td>{{item.anno}}</td>
+                    <td>{{item.genero}}</td>
+                    <td>
+                        <button *ngIf="!mostrarBotones[i]" class="agregar-cancion" (click)="agregarCancion(item, i)"><b>Agregar</b></button>
+                        <button *ngIf="mostrarBotones[i]" class="agregar-cancion" (click)="quitarCancion(item,i)"><b>Quitar</b></button>
+                    </td>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="cerrar-modal">
+            <button class="button-cerrar-modal" (click)="cerrarModalTable()">Cerrar</button>
         </div>
     </div>
 </div>
