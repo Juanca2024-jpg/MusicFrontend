@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MostrarListasComponent } from '../mostrar-listas/mostrar-listas.component';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-lista-reproduccion',
-  imports: [MostrarListasComponent, NgIf, NgFor, FormsModule],
+  imports: [MostrarListasComponent, NgIf, NgFor, FormsModule, HttpClientModule],
   templateUrl: './lista-reproduccion.component.html',
   styleUrl: './lista-reproduccion.component.css'
 })
