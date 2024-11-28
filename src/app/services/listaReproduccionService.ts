@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListaReproduccionService {
-    private apiUrl = 'http://localhost:8080/api/v1/health';
+    private apiUrl = 'http://localhost:8080/api/v1';
     private token = 'eyJhbGciOiJIUzM4NCJ9.eyJyb2wiOlsiQ2xpZW50ZSJdLCJzdWIiOiJwcnVlYmEiLCJpYXQiOjE3MzI4MjAwNDMsImV4cCI6MTczNTQxMjA0M30.p1Zw85XexX4EEJBT2d20iRCoioa1J-KexrDaSfYSQ-cjVAvZUMtIwSk0iLu9fPOM';
     constructor(private http: HttpClient) { }
 
